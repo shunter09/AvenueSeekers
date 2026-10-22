@@ -1,0 +1,75 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
+@import "tailwindcss";
+@tailwind utilities;
+@theme inline {
+    --font-gaegu: "Gaegu", sans-serif;
+
+}
+:root {
+  --background: #fff6f6;
+  --foreground: #171717;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+
+}
+
+.animate-moving-gradient {
+    background-size: 200% auto;
+    animation: moveGradient 6s linear infinite;
+}
+
+.transition {
+    transition: ease-in-out width 0.7s, height 2s;
+}
+.transition:hover {
+    width: 165px;
+    height: 45px;
+    cursor: pointer;
+
+}
+
+.transition2 {
+    transition: ease-in-out;
+}
+
+@layer utilities {
+    @keyframes blink {
+        0%, 90%, 100% {
+            transform: scaleY(1);
+        }
+        95% {
+            transform: scaleY(0.1);
+        }
+    }
+
+    .animate-blink {
+        display: inline-block;
+        animation: blink 6s infinite;
+        transform-origin: center;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+    scroll-snap-type: y proximity; /* switch to mandatory once you're happy with it */
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.25rem; /* nav height, so sections don't hide under it */
+}
