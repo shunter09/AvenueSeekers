@@ -2,14 +2,11 @@
 import {subscribeUser} from "@/app/actions";
 import {useState} from "react";
 import BTNComponent from "@/app/components/keyfeaturesbtn";
-import SelectSubscriber from "@/app/components/selectSubscriber";
-const fields = [
-    { value: 'SWE', label: "Software Engineer"},
-    { value: 'HR', label: "Human Resources"},
-    { value: 'CM', label: "Construction Manager"},
-    { value: 'DW', label: "Dog Walker"},
-    { value: 'BS', label: "Babysitter"},
-]
+import SelectSubscriber, {Option} from "@/app/components/selectSubscriber";
+import jobs from '@/DATA/jobs.json';
+
+const fields: Option[] = jobs;
+
 export default function SubscribeUser() {
     const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [message, setMessage] = useState('');

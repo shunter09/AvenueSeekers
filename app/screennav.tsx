@@ -1,16 +1,17 @@
 'use client';
-import {Suspense, useState} from 'react';
+
 import Link from "next/link";
 import Image from "next/image";
 import EyeIcon from "@/app/components/EyeIcon";
-import Search from "@/app/components/search";
+import {useState} from "react";
+
 
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="w-full font-gaegu text-[#405068] text-xl p-7 sticky top-0 z-10 bg-[#fff6f6]">
+        <nav className="w-full font-gaegu text-[#405068] text-xl p-7 sticky top-0 z-10 bg-[#fff6f6] font-bold">
             {/* Top row */}
             <div className="flex items-center gap-3">
                 <EyeIcon className="w-8 animate-blink"/>
@@ -18,12 +19,10 @@ export default function Navbar() {
                 <Link href="/Home"><h1>AvenueSeekers</h1></Link>
 
                 {/* Desktop links: hidden on small screens, pushed right */}
-                <div className="hidden md:flex space-x-6 ml-auto gap-10">
-                    <Suspense fallback={null}>
-                        <Search placeholder={"Search"}/>
-                    </Suspense>
-                    <Link href="/Jobs">Jobs</Link>
-                    <Link href="/Volunteer">Volunteer</Link>
+                <div className="hidden md:flex space-x-6 ml-auto gap-10 text-center">
+
+                    <Link href="/Jobs" >Jobs</Link>
+                    <Link href="/Volunteer" >Volunteer</Link>
                     <Link href="/ForEmployers">For Employers</Link>
                 </div>
 
@@ -42,9 +41,7 @@ export default function Navbar() {
             {/* Mobile dropdown: its own row below the top row */}
             {isOpen && (
                 <div className="md:hidden bg-white border-t mt-4 px-4 pt-2 pb-4 space-y-2">
-                    <Suspense fallback={null}>
-                    <Search placeholder={"Search"}/>
-                    </Suspense>
+
                     <Link href="/Jobs" className="block py-2" onClick={() => setIsOpen(false)}>Jobs</Link>
                     <Link href="/Volunteer" className="block py-2" onClick={() => setIsOpen(false)}>Volunteer</Link>
                     <Link href="/ForEmployers" className="block py-2" onClick={() => setIsOpen(false)}>For Employers</Link>

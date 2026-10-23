@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useId, useMemo, useRef, useState } from "react";
+import React, {useEffect, useId, useMemo, useRef, useState} from "react";
 
 export type Option = { value: string; label: string };
 
@@ -13,16 +13,17 @@ type MultiSelectProps = {
 };
 
 export default function SelectSubscriber({
-                                        options = [],
-                                        value = [],
-                                        action,
-                                        placeholder = "Choose a Field",
-                                        searchable = true,
-                                    }: MultiSelectProps) {
+                                             options = [],
+                                             value = [],
+                                             action,
+                                             placeholder = "Choose a Field",
+                                             searchable = true,
+                                         }: Readonly<MultiSelectProps>) {
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState("");
     const [active, setActive] = useState(0);
     const rootRef = useRef<HTMLDivElement>(null);
+    const inputId = useId();
     const listId = useId();
 
     const filtered = useMemo(
@@ -68,8 +69,8 @@ export default function SelectSubscriber({
     return (
         <div ref={rootRef} className="relative w-full max-w-md">
             {/* Trigger: chips + search input */}
-            <div
-                onClick={() => setOpen(true)}
+            <label
+                htmlFor={inputId}
                 className="flex min-h-10.5 flex-wrap items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-2 py-1.5 focus-within:ring-2 focus-within:ring-indigo-200"
             >
                 {selected.map((o) => (
@@ -77,25 +78,29 @@ export default function SelectSubscriber({
                         key={o.value}
                         className="inline-flex items-center gap-1 rounded-md bg-indigo-50 px-2 py-0.5 text-sm text-indigo-700"
                     >
-            {o.label}
+                        {o.label}
                         <button
                             type="button"
                             aria-label={`Remove ${o.label}`}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                toggle(o.value);
-                            }}
+                            onClick={() => toggle(o.value)}
                             className="rounded text-indigo-400 hover:text-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
                         >
-              ×
-            </button>
-          </span>
+                            ×
+                        </button>
+                    </span>
                 ))}
 
                 <input
+                    id={inputId}
                     role="combobox"
+                    aria-label={placeholder}
                     aria-expanded={open}
                     aria-controls={listId}
+                    aria-haspopup="listbox"
+                    aria-autocomplete="list"
+                    aria-activedescendant={
+                        open && filtered[active] ? `${listId}-${active}` : undefined
+                    }
                     readOnly={!searchable}
                     value={query}
                     onChange={(e) => {
@@ -104,11 +109,12 @@ export default function SelectSubscriber({
                         setOpen(true);
                     }}
                     onFocus={() => setOpen(true)}
+                    onClick={() => setOpen(true)} // reopen after Escape
                     onKeyDown={onKeyDown}
                     placeholder={selected.length ? "" : placeholder}
                     className="min-w-20 flex-1 bg-transparent px-1 text-sm outline-none placeholder:text-gray-400"
                 />
-            </div>
+            </label>
 
             {/* Dropdown list */}
             {open && (
@@ -126,23 +132,32 @@ export default function SelectSubscriber({
                         return (
                             <li
                                 key={o.value}
+                                id={`${listId}-${i}`}
                                 role="option"
                                 aria-selected={isSelected}
+                                tabIndex={-1}
                                 onMouseEnter={() => setActive(i)}
+                                onFocus={() => setActive(i)}
                                 onClick={() => toggle(o.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        toggle(o.value);
+                                    }
+                                }}
                                 className={`flex cursor-pointer items-center gap-2 px-3 py-2 text-sm ${
                                     i === active ? "bg-gray-100" : ""
                                 }`}
                             >
-                <span
-                    className={`flex h-4 w-4 items-center justify-center rounded border text-[10px] leading-none ${
-                        isSelected
-                            ? "border-indigo-600 bg-indigo-600 text-white"
-                            : "border-gray-300"
-                    }`}
-                >
-                  {isSelected && "✓"}
-                </span>
+                                <span
+                                    className={`flex h-4 w-4 items-center justify-center rounded border text-[10px] leading-none ${
+                                        isSelected
+                                            ? "border-indigo-600 bg-indigo-600 text-white"
+                                            : "border-gray-300"
+                                    }`}
+                                >
+                                    {isSelected && "✓"}
+                                </span>
                                 {o.label}
                             </li>
                         );
