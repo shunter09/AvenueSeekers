@@ -1,6 +1,9 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/modules.xml
+/AvenueSeekers.iml
+/material_theme_project_new.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files

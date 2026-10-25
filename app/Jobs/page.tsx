@@ -1,27 +1,43 @@
 import {Suspense} from "react";
 import Search from "@/app/components/search";
-import {Separator} from "@/components/ui/separator"
-
 
 export default function Jobs() {
     return (
         <>
-        <header className="flex flex-row mt-10">
+            <header className="bg-[#fff6f6] px-5 pb-16 pt-16 text-center text-[#405068] md:px-9 md:pb-24 md:pt-24">
+                <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
+                    <h1 className="text-4xl leading-tight md:text-6xl">
+                        Find what&apos;s{" "}
+                        <span className="bg-linear-to-r from-[#db1a1a] to-[#405068] bg-clip-text text-transparent">
+                            actually open
+                        </span>
+                    </h1>
+                    <p className="max-w-xl text-base text-[#405068]/70 md:text-lg">
+                        Verified jobs, internships, and volunteer roles. No sign-up needed.
+                    </p>
+                </div>
 
-            <Suspense fallback={null}>
-                <Search placeholder={"Job title or Keyword"}/>
+                <div
+                    role="search"
+                    className="mx-auto  flex w-full max-w-4xl flex-col items-center justify-center gap-4 md:mt-12 md:flex-row md:gap-6"
+                >
+                    <div className="w-full min-w-0 md:flex-1">
+                        <Suspense fallback={null}>
+                            <Search placeholder={"Job title or Keyword"}/>
+                        </Suspense>
+                    </div>
 
-            </Suspense>
+                    <div className="w-full min-w-0 md:flex-1">
+                        <Suspense fallback={null}>
+                            <Search placeholder={"Job title or Keyword"}/>
+                        </Suspense>
+                    </div>
+                </div>
+            </header>
 
-            <Separator className="mt-20 h-20" orientation="vertical"/>
-            <Suspense fallback={null}>
-                <Search placeholder={"Job title or Keyword"}/>
-            </Suspense>
-
-        </header>
-        <main className="snap-start min-h-[calc(100dvh-5.25rem)] bg-gray-50 mt-20 px-9 flex items-center justify-center">
-
-        </main>
+            <main className="snap-start min-h-[calc(100dvh-5.25rem)] bg-white px-5 pb-16 pt-14 text-[#405068] md:px-9 md:pt-20">
+                
+            </main>
         </>
-    )
+    );
 }

@@ -1,86 +1,95 @@
 import BTNComponent2 from "@/app/components/explorebtn";
 import SubscribeUser from "@/app/components/subscribeUser";
 
+// keep your existing imports for BTNComponent2 and SubscribeUser
 
+const reasons = [
+    {title: "Verified listings", text: "We re-check jobs so closed roles disappear."},
+    {title: "Save your time", text: "Apply only to roles that are actually open."},
+    {title: "Always fresh", text: "Every job shows when it was last verified."},
+    {
+        title: "No One Click Apply",
+        text: "When you click to apply, get directly taken to the job application website.",
+    },
+    {title: "No Log-In or Sign-Up", text: "Free to use for searching and applying."},
+];
+
+const stats = [
+    {
+        big: "10-15%",
+        text: "of scraped jobs remain on a board well after an employer has closed recruitment",
+    },
+    {
+        big: "One Click Apply is an issue",
+        text: "that floods Employers with unqualified applications, and puts a Job Seekers resume into a third-party pile",
+    },
+    {
+        big: "Free for Job Seekers",
+        text: "and ample exposure for employers",
+    },
+];
 
 export default function Home() {
-
-
     return (
-
         <main>
             {/* Page 1: Hero */}
-            <section
-                className="snap-start min-h-[calc(100dvh-5.25rem)]  text-[#405068] flex flex-col justify-center p-7 gap-13">
-                <h1 className="text-6xl text-left">
-                    Find Volunteer, Internship, <br/>and Job Opportunities<br/> Right
-                    <span
-                        className="bg-linear-to-r from-[#db1a1a] to-[#405068] bg-clip-text text-transparent"> Here</span>,
-                    Right{" "}
-                    <span
-                        className="bg-linear-to-r from-[#db1a1a] to-[#405068] bg-clip-text text-transparent">Now</span>
+            <section className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col justify-center gap-8 px-5 py-12 text-[#405068] md:gap-12 md:px-9">
+                <h1 className="max-w-5xl text-4xl leading-tight sm:text-5xl md:text-6xl md:leading-tight">
+                    Find Volunteer, Internship, and Job Opportunities Right{" "}
+                    <span className="bg-linear-to-r from-[#db1a1a] to-[#405068] bg-clip-text text-transparent">
+                        Here
+                    </span>
+                    , Right{" "}
+                    <span className="bg-linear-to-r from-[#db1a1a] to-[#405068] bg-clip-text text-transparent">
+                        Now
+                    </span>
                 </h1>
-                <p>Explore 1000+ listings filtered in the way you want</p>
-                <div className="flex flex-row gap-10">
-                    <a href="#why-us"
-                       className=" bg-[#2c687b] text-white hover:bg-[#2c687b]/80 transition w-40 h-10 border-none rounded-lg flex justify-center items-center">
+
+                <p className="text-lg md:text-xl">
+                    Explore 1000+ listings filtered in the way you want
+                </p>
+
+                <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+                    <a
+                        href="#why-us"
+                        className="flex h-10 w-full items-center justify-center rounded-lg bg-[#2c687b] text-white transition hover:bg-[#2c687b]/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2c687b] sm:w-40"
+                    >
                         Why Us
                     </a>
                     <BTNComponent2/>
                 </div>
             </section>
 
-            {/* Page 2: Problem */}
-            <section className="snap-start min-h-[calc(100dvh-5.25rem)] bg-white px-9 flex items-center justify-center">
-                <div className="text-center max-w-3xl">
-                    <p className=" text-[#405068] text-7xl font-bold">10-15%</p>
-                    <h2 className=" text-[#405068] text-3xl mt-4">
-                        of scraped jobs remain on a board well after an employer has closed recruitment
-                    </h2>
+            {/* Problem sections */}
+            {stats.map((s) => (
+                <section
+                    key={s.big}
+                    className="flex min-h-[calc(100dvh-5.25rem)] snap-start items-center justify-center bg-white px-5 py-12 md:px-9"
+                >
+                    <div className="max-w-3xl text-center">
+                        <p className="text-5xl font-bold text-[#405068] md:text-7xl">{s.big}</p>
+                        <h2 className="mt-4 text-xl text-[#405068] md:text-3xl">{s.text}</h2>
+                    </div>
+                </section>
+            ))}
 
-                </div>
-            </section>
-
-            <section className="snap-start min-h-[calc(100dvh-5.25rem)] bg-white px-9 flex items-center justify-center">
-                <div className="text-center max-w-3xl">
-                    <p className="text-[#405068] text-7xl font-bold">One Click Apply is an issue</p>
-                    <h2 className=" text-[#405068] text-3xl mt-4">
-                        that floods Employers with unqualified applications, and puts a Job Seekers resume into a
-                        third-party pile
-                    </h2>
-
-                </div>
-            </section>
-
-            <section className="snap-start min-h-[calc(100dvh-5.25rem)] bg-white px-9 flex items-center justify-center">
-                <div className="text-center max-w-3xl">
-                    <p className="text-[#405068] text-7xl font-bold">Free for Job Seekers</p>
-                    <h2 className=" text-[#405068] text-3xl mt-4">
-                        and ample exposure for employers
-                    </h2>
-
-                </div>
-            </section>
-
-            {/* Page 3: Why us */}
+            {/* Why us */}
             <section
-                className="snap-start min-h-[calc(100dvh-5.25rem)] bg-white px-9 flex flex-col items-center justify-center"
-                id="why-us">
+                id="why-us"
+                className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col items-center justify-center bg-white px-5 py-12 md:px-9"
+            >
                 <div className="w-full max-w-5xl">
-                    <h2 className="text-[#405068] text-2xl text-center mb-8">Why us</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            {title: "Verified listings", text: "We re-check jobs so closed roles disappear."},
-                            {title: "Save your time", text: "Apply only to roles that are actually open."},
-                            {title: "Always fresh", text: "Every job shows when it was last verified."},
-                            {
-                                title: "No One Click Apply ",
-                                text: "When you click to apply, get directly taken to the job application website."
-                            },
-                            {title: "No Log-In or Sign-Up", text: "Free to use for searching and applying"},
-                        ].map((item) => (
-                            <div key={item.title} className="rounded-2xl bg-[#f5f7fa] p-6 text-center">
-                                <h3 className=" text-[#405068] text-xl mb-2">{item.title}</h3>
+                    <h2 className="mb-8 text-center text-2xl text-[#405068] md:text-3xl">Why us</h2>
+
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-6">
+                        {reasons.map((item, i) => (
+                            <div
+                                key={item.title}
+                                className={`rounded-2xl bg-[#f5f7fa] p-6 text-center md:col-span-2 ${
+                                    i === 3 ? "md:col-start-2" : ""
+                                }`}
+                            >
+                                <h3 className="mb-2 text-xl text-[#405068]">{item.title}</h3>
                                 <p className="text-[#405068]/80">{item.text}</p>
                             </div>
                         ))}
@@ -90,6 +99,7 @@ export default function Home() {
 
             <SubscribeUser/>
         </main>
-
-    )
+    );
 }
+
+
