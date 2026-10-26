@@ -116,6 +116,8 @@ html {
     scroll-padding-top: 5.25rem; /* nav height, so sections don't hide under it */
 }
 
+
+
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
