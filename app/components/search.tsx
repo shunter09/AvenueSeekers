@@ -1,38 +1,43 @@
 'use client';
-import { useDebouncedCallback } from 'use-debounce'
 
-import {useSearchParams, usePathname, useRouter} from 'next/navigation';
+import {useId} from "react";
+import {useSearchParams, usePathname, useRouter} from "next/navigation";
+import {useDebouncedCallback} from "use-debounce";
 
+export default function Search({
+                                   placeholder,
+                                   param = "query",
+                                   label = "Search",
+                               }: Readonly<{ placeholder: string; param?: string; label?: string }>) {
+    const id = useId();
 
-export default function Search({placeholder}: Readonly<{ placeholder: string }>) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const {replace} = useRouter();
-    const handleSearch = useDebouncedCallback((term) => {
-        console.log(`Searching... ${term}`);
+
+    const handleSearch = useDebouncedCallback((term: string) => {
         const params = new URLSearchParams(searchParams);
-        if (term) {
-            params.set('query', term);
+        if (term.trim()) {
+            params.set(param, term.trim());
         } else {
-            params.delete('query');
+            params.delete(param);
         }
         replace(`${pathname}?${params.toString()}`);
     }, 500);
 
     return (
         <div className="relative flex flex-1 shrink-0 justify-center">
-            <label htmlFor="search" className="sr-only">
-                Search
+            <label htmlFor={id} className="sr-only">
+                {label}
             </label>
             <input
-                className="peer block w-200 h-20 rounded-4xl bg-white  border-none py-2.25 pl-10 text-md mt-20  placeholder:text-gray-500"
+                id={id}
+                type="search"
+                className="peer block h-16 w-full rounded-4xl border-none bg-white py-2 pl-6 pr-4 text-base placeholder:text-gray-500"
                 placeholder={placeholder}
-                onChange={(e) => {
-                    handleSearch(e.target.value);
-                }}
-                defaultValue={searchParams.get('query')?.toString()}
+                onChange={(e) => handleSearch(e.target.value)}
+                defaultValue={searchParams.get(param)?.toString()}
             />
-
         </div>
     );
 }
