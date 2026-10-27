@@ -49,7 +49,7 @@ export default async function Jobs({
                         </span>
                     </h1>
                     <p className="max-w-xl text-base text-[#405068]/70 md:text-lg">
-                        Verified jobs, internships, and volunteer roles. No sign-up needed.
+                        Verified jobs and internship roles. No sign-up needed.
                     </p>
                 </div>
 
