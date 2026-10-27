@@ -26,14 +26,14 @@ export default function Navbar() {
             aria-label="Main"
             className="sticky top-0 z-10 w-full border-b border-[#405068]/10 bg-[#fff6f6] px-5 py-5 font-gaegu text-xl font-bold text-[#405068] md:px-7 md:py-6"
         >
-            {/* Top row */}
+            {/* Top row of the nav bar */}
             <div className="flex items-center gap-3">
                 <Link href="/Home" className="flex items-center gap-3 rounded-xl focus-visible:outline-2 focus-visible:outline-[#2c687b]">
                     <EyeIcon className="w-8 animate-blink" />
                     <span className="text-2xl">AvenueSeekers</span>
                 </Link>
 
-                {/* Desktop links */}
+                {/* These are the desktop links */}
                 <div className="ml-auto hidden items-center gap-4 md:flex">
                     {links.map((l) => (
                         <Link
@@ -47,7 +47,7 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                {/* Mobile button */}
+                {/* This is the mobile button */}
                 <button
                     type="button"
                     onClick={() => setIsOpen((o) => !o)}
@@ -68,7 +68,7 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile dropdown */}
+            {/* This is the mobile dropdown */}
             {isOpen && (
                 <div
                     id="mobile-menu"

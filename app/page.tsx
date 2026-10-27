@@ -5,7 +5,7 @@ import SubscribeUser from "@/app/components/subscribeUser";
 
 
 
-// keep your existing imports for BTNComponent2 and SubscribeUser
+
 
 const reasons = [
     {title: "Verified listings", text: "We re-check jobs so closed roles disappear."},
@@ -36,7 +36,7 @@ const stats = [
 export default function Home() {
     return (
         <main>
-            {/* Page 1: Hero */}
+            {/* Page 1: The Hero section */}
             <section className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col justify-center gap-8 px-5 py-12 text-[#405068] md:gap-12 md:px-9">
                 <h1 className="max-w-5xl text-4xl leading-tight sm:text-5xl md:text-6xl md:leading-tight">
                     Find Volunteer, Internship, and Job Opportunities Right{" "}
@@ -64,7 +64,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Problem sections */}
+            {/* The Problem section */}
             {stats.map((s) => (
                 <section
                     key={s.big}
@@ -77,7 +77,7 @@ export default function Home() {
                 </section>
             ))}
 
-            {/* Why us */}
+            {/* The Why us section */}
             <section
                 id="why-us"
                 className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col items-center justify-center bg-white px-5 py-12 md:px-9"
