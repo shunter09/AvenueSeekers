@@ -1,6 +1,10 @@
 package AvenueSeekers.avenue_seekers;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
 @Entity
 @Table(name = "jobs")
 public class Job {
@@ -9,13 +13,20 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     private String title;
+    @Setter
     private String company;
+    @Setter
     private String city;
+    @Setter
     private String state;   // store as "TN"
+    @Setter
     private String zip;
+    @Setter
     private String type;    // JOB, INTERNSHIP, VOLUNTEER
 
+    @Setter
     @Column(length = 2000)
     private String url;
 
@@ -31,19 +42,4 @@ public class Job {
         this.url = url;
     }
 
-    public Long getId() { return id; }
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public String getCompany() { return company; }
-    public void setCompany(String company) { this.company = company; }
-    public String getCity() { return city; }
-    public void setCity(String city) { this.city = city; }
-    public String getState() { return state; }
-    public void setState(String state) { this.state = state; }
-    public String getZip() { return zip; }
-    public void setZip(String zip) { this.zip = zip; }
-    public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
-    public String getUrl() { return url; }
-    public void setUrl(String url) { this.url = url; }
 }

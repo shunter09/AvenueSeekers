@@ -49,10 +49,10 @@ export default function Home() {
                     Explore 1000+ listings filtered in the way you want
                 </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+                <div className="flex flex-row gap-4 sm:flex-row sm:gap-10">
                     <a
                         href="#why-us"
-                        className="flex h-10 w-full items-center justify-center rounded-lg bg-[#2c687b] text-white transition hover:bg-[#2c687b]/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2c687b] sm:w-40"
+                        className="flex h-10 w-40 items-center justify-center rounded-lg bg-[#2c687b] text-white transition hover:bg-[#2c687b]/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2c687b] "
                     >
                         Why Us
                     </a>
