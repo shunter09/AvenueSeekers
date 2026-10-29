@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
+import { Gaegu } from 'next/font/google'
 import "./globals.css";
 
 import Navbar from "@/app/screennav";
@@ -7,7 +8,12 @@ import Footer from "@/app/footer";
 
 
 
-
+const gaegu = Gaegu({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  display: 'swap',
+  variable: '--font-gaegu',
+})
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -30,7 +36,7 @@ export default function RootLayout({children}: LayoutProps<"/">) {
     return (
         <html
             lang="en"
-            className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+            className={`${gaegu.variable}  h-full antialiased`}
         >
         <body className="font-gaegu bg-[#fff6f6] flex min-h-screen flex-col">
         <Navbar/>
