@@ -15,16 +15,6 @@ const gaegu = Gaegu({
   variable: '--font-gaegu',
 })
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
 
 export const metadata: Metadata = {
     title: "AvenueSeekers",
@@ -33,6 +23,7 @@ export const metadata: Metadata = {
 
 
 export default function RootLayout({children}: LayoutProps<"/">) {
+  await connection()
     return (
         <html
             lang="en"
