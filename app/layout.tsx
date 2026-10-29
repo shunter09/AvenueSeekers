@@ -28,7 +28,7 @@ export default async function RootLayout({children}: LayoutProps<"/">) {
     return (
         <html
             lang="en"
-            className={`${gaegu.variable}  h-full antialiased`}
+            className={gaegu.className}
         >
         <body className="font-gaegu bg-[#fff6f6] flex min-h-screen flex-col">
         <Navbar/>
