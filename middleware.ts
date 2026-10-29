@@ -7,9 +7,10 @@ export function middleware(request: NextRequest) {
   const csp = [
     `default-src 'self'`,
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ''}`,
-    `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: blob: https:`,
-    `font-src 'self' data:`,
+    // Dev needs unsafe-inline because HMR injects styles; production uses the nonce only
+    `style-src 'self' ${isDev ? "'unsafe-inline'" : `'nonce-${nonce}'`}`,
+    `img-src 'self'`,
+    `font-src 'self'`,
     `connect-src 'self'`,
     `object-src 'none'`,
     `base-uri 'self'`,
