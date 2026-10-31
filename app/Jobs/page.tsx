@@ -1,5 +1,6 @@
 import {Suspense} from "react";
-import Search from "@/app/components/search";
+
+import SearchBar from "@/app/components/SearchBar";
 
 type Job = {
     id: number;
@@ -53,21 +54,10 @@ export default async function Jobs({
                     </p>
                 </div>
 
-                <div
-                    role="search"
-                    className="mx-auto flex w-full max-w-4xl flex-col items-center justify-center gap-4 md:mt-12 md:flex-row md:gap-6"
-                >
-                    <div className="w-full min-w-0 md:flex-1">
-                        <Suspense fallback={null}>
-                            <Search placeholder="Job title or Keyword" param="query" label="Job title or keyword"/>
-                        </Suspense>
-                    </div>
-
-                    <div className="w-full min-w-0 md:flex-1">
-                        <Suspense fallback={null}>
-                            <Search placeholder="City, state, or ZIP" param="location" label="Location"/>
-                        </Suspense>
-                    </div>
+                <div className="mx-auto mt-10 w-full max-w-4xl md:mt-12">
+                    <Suspense fallback={null}>
+                        <SearchBar/>
+                    </Suspense>
                 </div>
             </header>
 
