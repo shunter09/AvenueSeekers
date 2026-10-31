@@ -1,6 +1,4 @@
 
-
-@import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -9,7 +7,7 @@
 @plugin "daisyui";
 @tailwind utilities;
 @theme inline {
-    --font-gaegu: "Gaegu", sans-serif;
+    --font-sans: var(--font-gaegu);
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
