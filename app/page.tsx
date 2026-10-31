@@ -1,8 +1,7 @@
 
-
-import BTNComponent2 from "@/app/components/explorebtn";
 import SubscribeUser from "@/app/components/subscribeUser";
-
+import Search from "@/app/components/search";
+import {ShieldCheck, UserRoundX} from "lucide-react";
 
 
 
@@ -33,10 +32,11 @@ const stats = [
     },
 ];
 
+const linkTransition = "border rounded-full px-3 py-1.5  text-center transition-colors duration-300 hover:text-[#db1a1a]/60 focus-visible:text-[#db1a1a] hover:border-[#db1a1a]/60 focus-visible:outline-2 focus-visible:outline-[#2c687b]"
 export default function Home() {
     return (
         <main>
-            {/* Page 1: The Hero section */}
+            {/* Page 1: The Hero section*/}
             <section className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col justify-center gap-8 px-5 py-12 text-[#405068] md:gap-12 md:px-9">
                 <h1 className="max-w-5xl text-4xl leading-tight sm:text-5xl md:text-6xl md:leading-tight">
                     Find Volunteer, Internship, and Job Opportunities Right{" "}
@@ -49,18 +49,29 @@ export default function Home() {
                     </span>
                 </h1>
 
-                <p className="text-lg md:text-xl">
-                    Explore 1000+ listings filtered in the way you want
+                <p className="opacity-65 max-w-140 text-lg md:text-xl">
+                    A listings board for jobs, internships and volunteer roles that are actually open. Every posting is re-checked by hand, so the time you spend applying goes somewhere real.
                 </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
-                    <a
-                        href="#why-us"
-                        className="flex h-10 w-full items-center justify-center rounded-lg bg-[#2c687b] text-white transition hover:bg-[#2c687b]/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2c687b] sm:w-40"
-                    >
-                        Why Us
-                    </a>
-                    <BTNComponent2/>
+                <div className="max-w-130 flex flex-row">
+                    <Search  placeholder="Search roles, organizations, or cities"/>
+                </div>
+                <div className="text-md flex gap-4 ">
+                    <a href="/Jobs" className={linkTransition}>JOBS</a>
+                    <a href="/Volunteer" className={linkTransition}>VOLUNTEER</a>
+                    <a href="/Jobs" className={linkTransition}>INTERNSHIPS</a>
+                </div>
+                <div className="h-px w-full max-w-130 bg-[#405068]/10" aria-hidden="true"/>
+                <div className="flex flex-row flex-wrap items-center  gap-x-8 gap-y-2 text-base">
+                    <div className="flex items-center gap-2">
+                        <UserRoundX className="h-5 w-5" aria-hidden="true" focusable="false"/>
+                        <span>NO SIGN-UP</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <ShieldCheck className="h-5 w-5" aria-hidden="true" focusable="false"/>
+                        <span>VERIFIED WEEKLY</span>
+                    </div>
                 </div>
             </section>
 
@@ -77,7 +88,7 @@ export default function Home() {
                 </section>
             ))}
 
-            {/* The Why us section */}
+            {/* The Why us section*/}
             <section
                 id="why-us"
                 className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col items-center justify-center bg-white px-5 py-12 md:px-9"
@@ -105,3 +116,5 @@ export default function Home() {
         </main>
     );
 }
+
+
