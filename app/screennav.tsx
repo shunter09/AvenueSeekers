@@ -17,24 +17,24 @@ export default function Navbar() {
     const pathname = usePathname();
 
     const linkClass = (href: string) =>
-        `rounded-xl px-3 py-1.5 transition-colors duration-300 hover:bg-[#405068]/10 focus-visible:bg-[#405068]/10 focus-visible:outline-2 focus-visible:outline-[#2c687b] ${
-            pathname === href ? "bg-[#405068]/10" : ""
+        `rounded-xl px-3 py-1.5 transition-colors duration-300 hover:text-[#db1a1a]/60 focus-visible:text-[#db1a1a] focus-visible:outline-2 focus-visible:outline-[#2c687b] ${
+            pathname === href ? "text-[#db1a1a]/60" : ""
         }`;
 
     return (
         <nav
             aria-label="Main"
-            className="sticky top-0 z-10 w-full border-b border-[#405068]/10 bg-[#fff6f6] px-5 py-5 font-gaegu text-xl font-bold text-[#405068] md:px-7 md:py-6"
+            className="  sticky top-0 z-10  border-b border-[#405068]/10 bg-[#fff6f6] px-5 py-5 font-gaegu text-xl font-bold text-[#405068] md:px-7 md:py-6"
         >
             {/* Top row of the nav bar */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center ">
                 <Link href="/Home" className="flex items-center gap-3 rounded-xl focus-visible:outline-2 focus-visible:outline-[#2c687b]">
                     <EyeIcon className="w-8 animate-blink" />
                     <span className="text-2xl">AvenueSeekers</span>
                 </Link>
 
                 {/* These are the desktop links */}
-                <div className="ml-auto hidden items-center gap-4 md:flex">
+                <div className="ml-auto hidden items-center gap-7 md:flex">
                     {links.map((l) => (
                         <Link
                             key={l.href}
