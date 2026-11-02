@@ -70,12 +70,13 @@
 }
 
 .transition {
-    transition: ease-in-out width 0.7s, height 2s;
+    transform: translateY(0px);
+    transition: transform 0.4s ease-in-out;
 }
 .transition:hover {
-    width: 165px;
-    height: 45px;
+    transform: translateY(-5px);
     cursor: pointer;
+    box-shadow: 6px 6px 20px rgb(0 0 0 / 0.18);
 
 }
 
@@ -202,3 +203,4 @@ html {
     }
 
 }
+

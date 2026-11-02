@@ -43,7 +43,11 @@ export default function SubscribeUser() {
                         placeholder="example@gmail.com"
                         className="w-full max-w-md h-12 min-w-0 text-center text-xl md:text-3xl border rounded-lg px-3 py-2"
                     />
+
                     <SelectSubscriber options={fields} value={picked} action={setPicked}/>
+                    {picked.map((v) => (
+                        <input key={v} type="hidden" name="fields" value={v}/>
+                    ))}
                     <BTNComponent />
                     {status !== 'idle' && (
                         <p className="text-base md:text-xl">{message}</p>

@@ -25,6 +25,8 @@ public class Job {
     private String zip;
     @Setter
     private String type;    // JOB, INTERNSHIP, VOLUNTEER
+    @Setter
+    private String field;
 
     @Setter
     @Column(length = 2000)
@@ -32,13 +34,14 @@ public class Job {
 
     public Job() { }
 
-    public Job(String title, String company, String city, String state, String zip, String type, String url) {
+    public Job(String title, String company, String city, String state, String zip, String type, String field, String url) {
         this.title = title;
         this.company = company;
         this.city = city;
         this.state = state;
         this.zip = zip;
         this.type = type;
+        this.field = field;
         this.url = url;
     }
 

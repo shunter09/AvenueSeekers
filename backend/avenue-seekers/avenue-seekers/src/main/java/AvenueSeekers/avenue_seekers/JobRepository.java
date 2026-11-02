@@ -20,4 +20,5 @@ public interface JobRepository extends JpaRepository<Job, Long> {
         ORDER BY j.id DESC
         """)
     List<Job> search(@Param("q") String q, @Param("loc") String loc);
+    List<Job> findTop10ByFieldOrderByIdDesc(String field);
 }
