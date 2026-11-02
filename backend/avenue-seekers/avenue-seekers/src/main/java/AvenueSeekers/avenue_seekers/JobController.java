@@ -15,7 +15,11 @@ public class JobController {
 
     @GetMapping
     public List<Job> search(@RequestParam(defaultValue = "") String q,
-                            @RequestParam(defaultValue = "") String location) {
+                            @RequestParam(defaultValue = "") String location,
+                             @RequestParam(defaultValue = "") String field) {
+                             if(!field.isBlank()){
+                               return repo.findTop10ByFieldOrderByIdDesc(field.trim());
+                             }
         return repo.search(q.trim(), location.trim());
     }
 
