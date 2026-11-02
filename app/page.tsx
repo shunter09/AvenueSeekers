@@ -1,9 +1,7 @@
-
 import SubscribeUser from "@/app/components/subscribeUser";
 import Search from "@/app/components/search";
 import {ShieldCheck, UserRoundX} from "lucide-react";
-
-
+import Card from "@/app/components/Cards";
 
 
 const reasons = [
@@ -23,12 +21,12 @@ const stats = [
         text: "of scraped jobs remain on a board well after an employer has closed recruitment",
     },
     {
-        big: "One Click Apply is an issue",
-        text: "that floods Employers with unqualified applications, and puts a Job Seekers resume into a third-party pile",
+        big: "1,000+",
+        text: "jobs, internships and volunteer roles, filtered the way you want them.",
     },
     {
-        big: "Free for Job Seekers",
-        text: "and ample exposure for employers",
+        big: "0",
+        text: "accounts, log-ins or one-click apply piles required. Ever.",
     },
 ];
 
@@ -37,8 +35,9 @@ export default function Home() {
     return (
         <main>
             {/* Page 1: The Hero section*/}
-            <section className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col justify-center gap-8 px-5 py-12 text-[#405068] md:gap-12 md:px-9">
-                <h1 className="max-w-5xl text-4xl leading-tight sm:text-5xl md:text-6xl md:leading-tight">
+            <section
+                className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col justify-center gap-8 px-5 py-12 text-[#405068] md:gap-12 md:px-9">
+                <h1 className="max-w-5xl text-6xl leading-tight  md:leading-tight">
                     Find Volunteer, Internship, and Job Opportunities Right{" "}
                     <span className="bg-linear-to-r from-[#db1a1a] to-[#405068] bg-clip-text text-transparent">
                         Here
@@ -50,11 +49,12 @@ export default function Home() {
                 </h1>
 
                 <p className="opacity-65 max-w-140 text-lg md:text-xl">
-                    A listings board for jobs, internships and volunteer roles that are actually open. Every posting is re-checked by hand, so the time you spend applying goes somewhere real.
+                    A listings board for jobs, internships and volunteer roles that are actually open. Every posting is
+                    re-checked by automatically, so the time you spend applying goes somewhere real.
                 </p>
 
                 <div className="max-w-130 flex flex-row">
-                    <Search  placeholder="Search roles, organizations, or cities"/>
+                    <Search placeholder="Search roles, organizations, or cities"/>
                 </div>
                 <div className="text-md flex gap-4 ">
                     <a href="/Jobs" className={linkTransition}>JOBS</a>
@@ -76,42 +76,67 @@ export default function Home() {
             </section>
 
             {/* The Problem section */}
-            {stats.map((s) => (
-                <section
-                    key={s.big}
-                    className="flex min-h-[calc(100dvh-5.25rem)] snap-start items-center justify-center bg-white px-5 py-12 md:px-9"
-                >
-                    <div className="max-w-3xl text-center">
-                        <p className="text-5xl font-bold text-[#405068] md:text-7xl">{s.big}</p>
-                        <h2 className="mt-4 text-xl text-[#405068] md:text-3xl">{s.text}</h2>
-                    </div>
-                </section>
-            ))}
+            <section className="bg-[#db1a1a]/5  px-5 py-12 md:px-9">
+                <div
+                    className="mx-auto flex max-w-6xl flex-col divide-y divide-[#405068]/10 md:flex-row md:divide-x md:divide-y-0">
+                    {stats.map((s) => (
+                        <div key={s.big}
+                             className="flex-1 py-8 first:pt-0 last:pb-0 md:px-8 md:py-0 md:first:pl-0 md:last:pr-0">
+                            <p className="text-4xl font-bold text-[#405068]">{s.big}</p>
+                            <h2 className="mt-4 text-2xl text-[#405068]">{s.text}</h2>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
             {/* The Why us section*/}
             <section
                 id="why-us"
-                className="flex min-h-[calc(100dvh-5.25rem)] snap-start flex-col items-center justify-center bg-white px-5 py-12 md:px-9"
+                className="flex  snap-start flex-col bg-white px-5 py-27 md:px-9"
             >
-                <div className="w-full max-w-5xl">
-                    <h2 className="mb-8 text-center text-2xl text-[#405068] md:text-3xl">Why us</h2>
 
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-6">
-                        {reasons.map((item, i) => (
-                            <div
-                                key={item.title}
-                                className={`rounded-2xl bg-[#f5f7fa] p-6 text-center md:col-span-2 ${
-                                    i === 3 ? "md:col-start-2" : ""
-                                }`}
-                            >
-                                <h3 className="mb-2 text-xl text-[#405068]">{item.title}</h3>
-                                <p className="text-[#405068]/80">{item.text}</p>
-                            </div>
-                        ))}
-                    </div>
+                <div className="mt-6 ml-0 w-full max-w-2xl p-7 xl:ml-70">
+                    <p className="mb-3 text-2xl text-[#db1a1a]">Why AvenueSeekers</p>
+                    <h2 className="text-4xl border-b border-[#405068]/10 pb-6 text-[#405068] md:text-5xl">
+                        Less scrolling. <br/>More showing up.
+                    </h2>
                 </div>
+
+                <div className="mt-8 grid w-full grid-cols-1 gap-x-10 gap-y-8 xl:grid-cols-2 xl:pl-77">
+                    {reasons.map((item, i) => (
+                        <div
+                            key={item.title}
+                            className="flex w-full max-w-md gap-4 border-b border-[#405068]/10 pb-6 xl:odd:justify-self-start "
+                        >
+                <span
+                    className="pt-0.5 text-lg font-bold text-[#db1a1a]"
+                    aria-hidden="true"
+                >
+                    {String(i + 1).padStart(2, "0")}
+                </span>
+
+                            <div>
+                                <h3 className="mb-2 text-2xl text-[#405068] transition-colors duration-300 hover:text-[#db1a1a]/60 md:text-3xl">
+                                    {item.title}
+                                </h3>
+                                <p className="text-lg text-[#405068]/80 md:text-xl">{item.text}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+
             </section>
 
+            <section className="shrink-0 bg-[#db1a1a]/5 px-5 py-12 md:px-9">
+                <div className=" ml-0 max-w-400 p-7 ">
+                    <p className="mb-3 text-2xl text-[#db1a1a]">Fresh this week</p>
+                    <h2 className="text-4xl  pb-6 text-[#405068] md:text-5xl">
+                        Openings worth a look.
+                    </h2>
+                    <Card/>
+                </div>
+            </section>
             <SubscribeUser/>
         </main>
     );
