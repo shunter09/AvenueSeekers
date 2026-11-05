@@ -11,6 +11,8 @@ Employers can pay for subscriptions to get their posting(s) boosted to the top a
 
 The way the employer knows that it is their post is that if their post gets enough clicks, they will receive an email alerting them and offering for them to boost their post. Employers are verified through magic links.
 
+[![Architecture diagram of shunter09/avenueseekers](https://gitdiagram.com/shunter09/avenueseekers/diagram.png)](https://gitdiagram.com/shunter09/avenueseekers?utm_source=readme&utm_medium=picture)
+
 ## Why this project?
 
 The reason I chose to this project and specific idea is because many other websites or major websites for these opportunities (i.e Linkedin, Indeed, etc) tend to be cluttered, duplicated postings, require lots of sign up and login, very expensive for employers (and users if they require any tier or payment to access premium stuff on their website), not user friendly a lot of the times, old postings, etc. And I decided to make a website that addresses these common issues.
