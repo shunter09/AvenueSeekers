@@ -1,6 +1,8 @@
 
 # AvenueSeekers
+
 [![Live Demo](https://shields.io)](https://avenue-seekers.vercel.app/)
+
 A website that allows users to find job, internship, and volunteer opportunities. Jobs, Internships, and Volunteer posting are all aggregated using Zenrows Job Scraping API (or other methods if needed) - which means there is no Sign-In or Log-In needed in general. 
 
 Users can subscribe to receive emails of any new Job, Internship, or Volunteer postings within their chosen domain only at the end of every week as not to create spam. 
