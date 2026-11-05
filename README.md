@@ -1,36 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# AvenueSeekers
 
-First, run the development server:
+A website that allows users to find job, internship, and volunteer opportunities. Jobs, Internships, and Volunteer posting are all aggregated using Zenrows Job Scraping API (or other methods if needed) - which means there is no Sign-In or Log-In needed in general. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Users can subscribe to receive emails of any new Job, Internship, or Volunteer postings within their chosen domain only at the end of every week as not to create spam. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Employers can pay for subscriptions to get their posting(s) boosted to the top and put in a rotation with 3 other boosted postings, and the rotation changes every reload so it ensures all post equally get attention. 
 
-You can start editing the page by modifying `app/Home/page.tsx`. The page auto-updates as you edit the file.
+The way the employer knows that it is their post is that if their post gets enough clicks, they will receive an email alerting them and offering for them to boost their post. Employers are verified through magic links.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Why this project?
 
-## Learn More
+The reason I chose to this project and specific idea is because many other websites or major websites for these opportunities (i.e Linkedin, Indeed, etc) tend to be cluttered, duplicated postings, require lots of sign up and login, very expensive for employers (and users if they require any tier or payment to access premium stuff on their website), not user friendly a lot of the times, old postings, etc. And I decided to make a website that addresses these common issues.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
